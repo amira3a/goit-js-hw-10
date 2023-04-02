@@ -19,7 +19,7 @@ function checkAPI(e) {
       data.forEach(item => {
         const ul = document.createElement('ul');
         ul.innerHTML = `
-       <p> <img src=${item.flags}/>  <b> ${item.name.common} </b> </p>
+       <p> <img src=${item.flags.svg} alt=${item.flags.alt} width=20px  />  <b> ${item.name.common} </b> </p>
         `;
         countryList.append(ul);
         return;
@@ -28,12 +28,12 @@ function checkAPI(e) {
       countryList.innerHTML = '';
       data.forEach(item => {
         const h1 = document.createElement('h1');
-        h1.innerHTML = `<p><img src=${item.flags}/> <b>${item.name.common}</b></p>`
+        h1.innerHTML = `<p><img src=${item.flags.svg} alt=${item.flags.alt} width="50px" /> <b>${item.name.common}</b></p>`
         const ul = document.createElement('ul');
         ul.innerHTML = `
        <p><b> capital:</b> ${item.capital} </p>
         <p><b> population:</b> ${item.population} </p>
-        <p><b> languages:</b> ${item.languages} </p>
+        <p><b> languages:</b> ${Object.values(item.languages)} </p>
         `;
         countryList.append(h1, ul);
         return;
